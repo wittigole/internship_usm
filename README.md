@@ -46,11 +46,16 @@ The first step to finding the best parameters is to choose a set of parameters (
 
 ![equation](https://latex.codecogs.com/gif.image?%5Cdpi%7B110%7D%5Cbg%7Bwhite%7DP(x%7C%5Cmu,%5Csigma)=%5Ccfrac%7B1%7D%7Bx%5Csigma%5Csqrt%7B2%5Cpi%7D%7D%5Cexp%5Cleft(%5Ccfrac%7B(%5Cln%7Bx%7D-%5Cmu)%5E2%7D%7B2%5Csigma%5E2%7D%5Cright))
 
-We need a lognormal distribution here because M<sub>* </sub> is normally distributed. However, since we're working with log(M<sub>* </sub>), this quantity is lognormally distributed. We can now compute the value of the lognormal distribution for every data point and add them up. The result is the Log-Likelihood for this set of parameters. The goal is to maximize this quantity by varying the parameters within the range in a smart way (so it does not take too long). The results from my fit to the new stellar masses can be found [here](./files/chain_no_measurement_error_1/_1_stats.dat). The second block of values gives the results of the best fit for the parameters in order and the standard deviation. The latter is computed by evaluating different sets of parameters that have similar Log-Likelihoods.
+We need a lognormal distribution here because M<sub>* </sub> is normally distributed. However, since we're working with log(M<sub>* </sub>), this quantity is lognormally distributed. We can now compute the value of the lognormal distribution for every data point and add them up. The result is the Log-Likelihood for this set of parameters. The goal is to maximize this quantity by varying the parameters within the range in a smart way (so it does not take too long). The results from my fit to the new stellar masses can be found [here](./files/chain_no_measurement_error_1/_1_stats.dat). The second block of values gives the results of the best fit for the parameters in order and the standard deviation. The latter is computed by evaluating different sets of parameters that have similar Log-Likelihoods. The results are:
+
++ normalization: A<sub>* </sub> = (3.85 +- 0.30) * 10^12 M<sub>sun</sub>
++ halo mass trend: B<sub>* </sub> = 0.703 +- 0.207
++ redshift trend: C<sub>* </sub> = 0.185 +- 0.516
++ scatter: D<sub>* </sub> = 0.057 +- 0.044
 
 [//]: # (Clarify this matter with Aditya!)
 
-From this one receives the follwing plot where I set z to z<sub>piv</sub>=0.6. For comparison, I also included fits with `scipy.optimize.curve_fit` and `scipy.optimize.odr.ODR` that both use least square approximation.
+From this one receives the following plot where I set z to z<sub>piv</sub>=0.6. For comparison, I also included fits with `scipy.optimize.curve_fit` and `scipy.optimize.odr.ODR` that both use least square approximation.
 
 ![my_fit](./plots/stellar_vs_halo_mass_my_fit.jpg)
 
