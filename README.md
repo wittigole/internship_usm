@@ -6,6 +6,8 @@ To get an impression for the kind of data I will be working with, my first task 
 
 For this, I'm using stellar mass profiles from Hennig et al (2017). Specifically,
 
+$$ \cfrac{m_\ast^{new}}{m_\ast^{old}} = \cfrac{\int_0^{R_{500}^{new}} \rho_\ast r^2\rm{d}r}{\int_0^{R_{500}^{old}} \rho_\ast r^2\rm{d}r} $$
+
 ![equation](https://latex.codecogs.com/gif.latex?%5Cdpi%7B110%7D%5Cbg%7Bwhite%7D%5Ccfrac%7Bm_%5Cast%5E%7Bnew%7D%7D%7Bm_%5Cast%5E%7Bold%7D%7D=%5Ccfrac%7B%5Cint_0%5E%7BR_%7B500%7D%5E%7Bnew%7D%7D%5Crho_%5Cast%20r%5E2%5Crm%7Bd%7Dr%7D%7B%5Cint_0%5E%7BR_%7B500%7D%5E%7Bold%7D%7D%5Crho_%5Cast%20r%5E2%5Crm%7Bd%7Dr%7D)
 
 This means, the ratio of new and old stellar masses depend on the NFW stellar mass profiles. We use the parameters (concentration parameter c) for those from Hennig et al (2017).
