@@ -31,7 +31,7 @@ This gives us an estimate for R<sub>200</sub> only from the (fixed) concentratio
 
 ![First results](./plots/stellar_mass_ratio_distribution.jpg)
 
-## Comparison to Simulations
+## Comparison to Simulations[^1]
 
 In the following figure, I'm showing the total stellar mass as a function of their total cluster masses (yellow data points). For comparison, the best fit from the old stellar mass-halo mass relation from Chiu et al. (2018) is shown. As the masses did not change too much, the fit still describes the data quite well (by eye). Additionally, the stellar mass-halo mass relation from the IllustrisTNG300-1 simulation is shown. There is a significant offset to the data. One aspect, although not important enough to explain the deviation, is the intra-cluster light (ICL) which is included for the TNG300 curve, but not for the observational data (as there is currently no way to determine its contribution).
 
@@ -64,8 +64,12 @@ The next task is now to show the trend with halo mass and redshift separately. T
 
 $$ \left(\cfrac{M_{500}}{M_{\rm piv}}\right)^{B_\ast} \hspace{0.5cm}\text{or}\hspace{0.5cm}\left(\cfrac{1+z}{1+z_{\rm piv}}\right)^{C_\ast} $$
 
-The fits are then altered by using M<sub>piv</sub> and z<sub>piv</sub> for M<sub>500</sub> and z, respectively. This procedure yields the following plots.
+The fits are then altered by using M<sub>piv</sub>=4.8*10^14 M<sub>sun</sub> and z<sub>piv</sub>=0.6 for M<sub>500</sub> and z, respectively. This procedure yields the following plots.
 
 ![mass trend](./plots/stellar_vs_halo_mass_wo_z.jpg)
 ![redshift trend](./plots/stellar_vs_halo_mass_wo_m500.jpg)
 
+
+
+
+[^1] Note: From here on, instead of using the abovementioned procedure to compute R<sub>200</sub>, we directly take the M<sub>200</sub> measurements and compute R<sub>200</sub> directly from this. By doing so, we avoid numerical inaccuracies that could arise as M<sub>500</sub> itself was not measured but calculated from the M<sub>200</sub> measurements.
