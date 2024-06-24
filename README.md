@@ -18,7 +18,7 @@ Since we don't know R<sub>200</sub> but only R<sub>500</sub>, we have to compute
 
 $$ \left(\cfrac{R_{200}}{R_{500}}\right)^3 \cdot \cfrac{\log\left(\cfrac{R_{200} + cR_{500}}{R_{200}} - \cfrac{cR_{500}}{R_{200} + cR_{500}}\right)}{\log(1+c) - \cfrac{c}{1+c}} - 2.5 = 0$$
 
-Here we used the following [integral](https://en.wikipedia.org/wiki/Navarro%E2%80%93Frenk%E2%80%93White_profile#Density_distribution){:target="_blank"} for the enclosed mass within R<sub>max</sub>.
+Here we used the following <a href="https://en.wikipedia.org/wiki/Navarro%E2%80%93Frenk%E2%80%93White_profile#Density_distribution" target="_blank">integral</a> for the enclosed mass within R<sub>max</sub>.
 
 $$ M = 4 \pi\int_0^{R_{max}}\rho(r)r^2\rm{d}r = 4\pi\rho_0 R_s^3 \left[\log\left(\cfrac{R_s + R_{max}}{R_s}\right) - \cfrac{R_{max}}{R_s + R_{max}}\right] = 4\pi\rho_0 \left(\cfrac{R_{vir}}{c}\right)^3 \left[\log\left(1 + c\right) - \cfrac{c}{1+c}\right]
  $$
@@ -29,7 +29,7 @@ This gives us an estimate for R<sub>200</sub> only from the (fixed) concentratio
 
 [//]: # (Comment test)
 
-![First results](./plots/stellar_mass_ratio_distribution.jpg){:target="_blank"}
+![First results](./plots/stellar_mass_ratio_distribution.jpg)
 
 ## Comparison to Simulations [^1]
 
@@ -41,7 +41,7 @@ The next step is to fit the scaling relation
 
 $$ M_\ast = A_\ast  \left(\cfrac{M_{500}}{M_{\rm piv}}\right)^{B_\ast}\left(\cfrac{1+z}{1+z_{\rm piv}}\right)^{C_\ast} $$
 
-to my data. I used an MCMC python module named [PyMultiNest](https://johannesbuchner.github.io/PyMultiNest/index.html#){:target="_blank"} for this purpose. It evaluates different sets of parameters (A<sub>*</sub>,B<sub>*</sub>,C<sub>*</sub>) based on some priors using the Log-Likelihood.
+to my data. I used an MCMC python module named <a href = "https://johannesbuchner.github.io/PyMultiNest/index.html#" target="_blank">PyMultiNest</a> for this purpose. It evaluates different sets of parameters (A<sub>*</sub>,B<sub>*</sub>,C<sub>*</sub>) based on some priors using the Log-Likelihood.
 
 The first step to finding the best parameters is to choose a set of parameters (A<sub>* </sub>,B<sub>* </sub>,C<sub>* </sub>). Since we have some expectations on what the parameters will be, we can limit the range from which parameters are chosen. With these parameters and the M<sub>500</sub> and z data, we can use the scaling relation to compute a prediction for M<sub>* </sub>. This prediction together with a scatter quantity are then used as mean µ and standard deviation of a lognormal distribution:
 
