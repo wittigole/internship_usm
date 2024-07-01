@@ -32,6 +32,7 @@ This gives us an estimate for R<sub>200</sub> only from the (fixed) concentratio
 [//]: # (Comment test)
 
 ![First results](./plots/stellar_mass_ratio_distribution.jpg)
+![newwer plot](./plots/ratio_comparison.jpg)
 
 ## Comparison to Simulations [^1]
 
