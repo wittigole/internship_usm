@@ -44,7 +44,7 @@ The next step is to fit the scaling relation
 
 $$ M_\ast = A_\ast  \left(\cfrac{M_{500}}{M_{\rm piv}}\right)^{B_\ast}\left(\cfrac{1+z}{1+z_{\rm piv}}\right)^{C_\ast} $$
 
-to my data. I used an MCMC python module named <a href = "https://johannesbuchner.github.io/PyMultiNest/index.html#" target="_blank">PyMultiNest</a> for this purpose. It evaluates different sets of parameters (A<sub>*</sub>,B<sub>*</sub>,C<sub>*</sub>) based on some priors using the Log-Likelihood.
+to my data. I used an MCMC python module named <a href = "https://johannesbuchner.github.io/PyMultiNest/index.html#" target="_blank">PyMultiNest</a> for this purpose. It evaluates different sets of parameters (A<sub>* </sub>,B<sub>* </sub>,C<sub>* </sub>) based on some priors using the Log-Likelihood.
 
 The first step to finding the best parameters is to choose a set of parameters (A<sub>* </sub>,B<sub>* </sub>,C<sub>* </sub>). Since we have some expectations on what the parameters will be, we can limit the range from which parameters are chosen. With these parameters and the M<sub>500</sub> and z data, we can use the scaling relation to compute a prediction for M<sub>* </sub>. This prediction together with a scatter quantity are then used as mean µ and standard deviation of a lognormal distribution:
 
@@ -67,12 +67,14 @@ The next task is now to show the trend with halo mass and redshift separately. T
 
 $$ \left(\cfrac{M_{500}}{M_{\rm piv}}\right)^{B_\ast} \hspace{0.5cm}\text{or}\hspace{0.5cm}\left(\cfrac{1+z}{1+z_{\rm piv}}\right)^{C_\ast} $$
 
-The fits are then altered by using M<sub>piv</sub>=4.8*10^14 M<sub>sun</sub> and z<sub>piv</sub>=0.6 for M<sub>500</sub> and z, respectively. This procedure yields the following plots.
+The fits are then altered by using M<sub>piv</sub>=4.8* 10^14 M<sub>sun</sub> and z<sub>piv</sub>=0.6 for M<sub>500</sub> and z, respectively. This procedure yields the following plots.
 
 ![mass trend](./plots/stellar_vs_halo_mass_wo_z.jpg)
 ![redshift trend](./plots/stellar_vs_halo_mass_wo_m500.jpg)
 
+We can see in the mass trend plot that there is a deviation for both TNG300 lines. This is because I updated the computation to only include stellar matter within twice the stellar half-mass radius. Additionally, I used halos at a snapshot approximately equal to z=0.6 to update the redshift to z<sub>piv</sub>. Finally, I also fitted the saling relation (in its redshift-independent form) to the data points. However, especially for larger halo masses (essentially above $$ 4\cdot10^14 \rm{M}_\odot $$) this fit might not be accurate since there are no clusters that massive in TNG300.
 
+As there is no widely accepted method for determining the contribution of the ICL to the total cluster stellar mass, both lines for TNG300 rather give an upper and lower limit. As described above, taking the total stellar mass of a cluster includes the ICL whereas only considering stars contained within $$ 2R_{0.5,\ast} $$ of each galaxy's center might miss outer parts of some galaxies. The true value is thus between the two lines. Nevertheless, even the lower boundary deviates strongly from our data.
 
 
 [^1]: Note: From here on, instead of using the abovementioned procedure to compute R<sub>200</sub>, we directly take the M<sub>200</sub> measurements and compute R<sub>200</sub> directly from this. By doing so, we avoid numerical inaccuracies that could arise as M<sub>500</sub> itself was not measured but calculated from the M<sub>200</sub> measurements.
