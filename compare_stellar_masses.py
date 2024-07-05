@@ -90,6 +90,7 @@ f.create_dataset('m_star_old', data=m_star_old)
 f.create_dataset('m_star_err_old', data=m_star_old_err)
 f.close()
 
+
 np.save('files/stellar_masses.npy', (m500_new, m_star_new, z_new, m500_new_err, m_star_new_err))
 
 #print(m500_new[0])

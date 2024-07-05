@@ -48,7 +48,7 @@ data4 = m_star_err[mask]
 # data3 = data3[:60]
 # data4 = data4[:60]
 
-binval = 1 ### used for easily creating directories for saving the output, 1 is fine for the first run
+binval = 2 ### used for easily creating directories for saving the output, 1 is fine for the first run
 
 #halo scaling relation usually used for fitting power laws (here in log-form)
 #-> original form: M_star = A1*(M500/M_piv)**B1*((1+z)/(1+z_piv))**C1
@@ -102,7 +102,7 @@ def prior(cube, ndim, nparams):
     
     ################ Uniform Priors ################
     
-    #these are the starting values the MCMC algorithm will use for the parameters A1, B!, C1 and the scatter D1
+    #these are the starting values the MCMC algorithm will use for the parameters A1, B1, C1 and the scatter D1
 
     cube[0] = pri.UniformPrior(cube[0],1e12,2e13)  #Adjust the range accroding to you M_star, should be wide enough
     cube[1] = pri.UniformPrior(cube[1],0.1,1.5) #exponent of the power law, around 0.8 for my sample
@@ -120,7 +120,7 @@ def loglikelihood(cube, ndim, nparams):
     LL = 0
     for i in range(len(data)):
         data_M500 = data[i]
-        data_lnM_icm = np.log(data1[i])
+        data_lnM_star = np.log(data1[i])
         z = data2[i]
         ln_m500_err = data3[i]/data[i]   ### measurement scatter in ln_m500
         ln_mstar_err = data4[i]/data1[i]  ### measurement scatter in ln_m_star
@@ -128,7 +128,7 @@ def loglikelihood(cube, ndim, nparams):
         D_tot = np.sqrt(D1**2 + ln_mstar_err**2 + B1**2*ln_m500_err**2)    #### Total scatter
 
         pred_lnM_star = halo_star_scaling(data_M500, z, A1, B1, C1) 
-        LL += lognormal(data_lnM_icm, pred_lnM_star, D_tot)
+        LL += lognormal(data_lnM_star, pred_lnM_star, D_tot)
     LL_final = LL
 
 
@@ -150,7 +150,7 @@ datafile = '/home/o/Ole.Wittig/files/chain_no_measurement_error_%s/'%binval  ###
 print(4)
 start = time.time()
 
-pymultinest.run(loglikelihood, prior, n_params, outputfiles_basename=datafile + '_1_', resume = False, verbose = True, n_live_points= 200, evidence_tolerance = 0.3, init_MPI = False, sampling_efficiency= 0.3,const_efficiency_mode = False, log_zero=-1e+90)
+pymultinest.run(loglikelihood, prior, n_params, outputfiles_basename=datafile + '_1_', resume = False, verbose = True, n_live_points= 400, evidence_tolerance = 0.3, init_MPI = False, sampling_efficiency= 0.3,const_efficiency_mode = False, log_zero=-1e+90)
 json.dump(parameters, open(datafile + '_1_params.json', 'w'))
 
 a = pymultinest.Analyzer(outputfiles_basename=datafile + '_1_', n_params = n_params)

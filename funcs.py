@@ -15,6 +15,9 @@ H_0 = 70*1e3/Mpc #s^-1, Hubble constant
 omega_m = 0.315 #matter density parameter
 omega_l = 0.685 #dark energy density parameter
 
+def dimless_hubble_param(z):
+    return np.sqrt(omega_m * (1+z)**3 + omega_l)
+
 def nfw_solution(r, c):
     """ return the integrated NFW profile up to r given the concentration. normalization is arbitrary and r is assumed to
      fulfill r = r_s * c """
@@ -30,6 +33,7 @@ def nfw_solution_err(r, c, r_err, c_err):
 def mass_to_radius(m, m_err = None, delta = 500):
     """ return the radius in Mpc given the mass in Msun """
     rho_c = 3 * H_0**2 / (8 * np.pi * G)
+    # rho_c *= dimless_hubble_param(z)**2
     rho = delta * rho_c
     # m in kg, rho in kg/m^3
     r = (3 * m * Msun / (4 * np.pi * rho)) ** (1./3)
@@ -39,6 +43,7 @@ def mass_to_radius(m, m_err = None, delta = 500):
 def mass_from_profile(r, c, r_err, c_err):
     """ return the mass of the galaxy cluster within r500 or r200 or whatever """
     rho_c = 3 * H_0**2 / (8 * np.pi * G)
+    # rho_c *= dimless_huubble_param(z)
     rho = 500 * rho_c
     M = 4 * np.pi * rho * nfw_solution(r,c) #integrated NFW profile (3D)
     M_err = 4 * np.pi * rho * nfw_solution_err(r, c, r_err, c_err)
