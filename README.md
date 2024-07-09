@@ -1,6 +1,6 @@
 # Project Overview on my internship at USM (LMU Munich, 2024)
 
-Note: As this also shows the progress I made during the internship, some plots in the beginning might be outdated. For now, I decided to keep them so I can see what improved over time. I might delete those figures at the end of the internship.
+Note: As this also shows the progress I made during the internship, some plots in the beginning might be outdated. For now, I decided to keep them so I can see what improved over time. I might delete those figures at the end of the internship. Values like R<sub>500</sub> always refer to the critical density, not the mean density, i.e. R<sub>500</sub> = R<sub>500,crit</sub>, M<sub>200</sub> = M<sub>200,crit</sub> etc.
 
 ## Getting familiar with the topic and the data
 
@@ -60,6 +60,7 @@ We need a lognormal distribution here because M<sub>* </sub> is normally distrib
 [//]: # (Clarify this matter with Aditya!)
 
 From this one receives the following plot where I set z to z<sub>piv</sub>=0.6 and compare the data to several simulation cases.
+
 ![my_fit](./plots/stellar_vs_halo_mass_my_fit.jpg)
 
 The next task is now to show the trend with halo mass and redshift separately. To exclude one or the other from the data, one simply divides by the respective term from the scaling relation with the best fit parameter:
@@ -71,7 +72,7 @@ The fits are then altered by using M<sub>piv</sub>=4.8* 10^14 M<sub>sun</sub> an
 ![mass trend](./plots/stellar_vs_halo_mass_wo_z.jpg)
 ![redshift trend](./plots/stellar_vs_halo_mass_wo_m500.jpg)
 
-We can see in the mass trend plot that there is a deviation for both TNG300 lines. This is because I updated the computation to only include stellar matter within twice the stellar half-mass radius. Additionally, I used halos at a snapshot approximately equal to z=0.6 to update the redshift to z<sub>piv</sub>. Finally, I also fitted the saling relation (in its redshift-independent form) to the data points. However, especially for larger halo masses (essentially above 4* 10^14 solar masses) this fit might not be accurate since there are no clusters that massive in TNG300.
+We can see in the mass trend plot that there is a deviation between all TNG300 lines. They were computed as the fit of the scaling relation to the set of individual halo data points. However, especially for larger halo masses (essentially above 4* 10<sup>14</sup> solar masses) this fit might not be accurate since there are no clusters that massive in TNG300. The dashed line captures all stellar mass in satellites (within R<sub>500</sub>) as well as twice the stellar half-mass radius of the BCG to exclude the extended ICL. Obviously, this is not enough as there is a large deviation to our data points. The next correction was to only add the stellar masses of galaxies above a certain threshold. I chose 10<sup>10</sup> M<sub>sun</sub> in stellar mass, as this is comparable to what Chiu et al. (2018) did in their study. They integrated their stellar mass function with this value as the lower limit. Unfortunately, this brings the line only marginally closer to our data points. For comparison - although not meaningful - I also show the stellar mass halo mass relation for TNG300 without considering the contribution of BCGs (dash-dotted). This line is in the regime where we want it to be as it roughly captures all data points. Since Chiu et al. (2018) did include BCGs in their analysis, this is just to evaluate the amount of stellar mass in the BCG.
 
 As there is no widely accepted method for determining the contribution of the ICL to the total cluster stellar mass, both lines for TNG300 rather give an upper and lower limit. As described above, taking the total stellar mass of a cluster includes the ICL whereas only considering stars contained within 2 R<sub>0.5,* </sub> of each galaxy's center might miss outer parts of some galaxies. The true value is thus between the two lines. Nevertheless, even the lower boundary deviates strongly from our data.
 
