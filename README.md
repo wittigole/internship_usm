@@ -59,8 +59,7 @@ We need a lognormal distribution here because M<sub>* </sub> is normally distrib
 
 [//]: # (Clarify this matter with Aditya!)
 
-From this one receives the following plot where I set z to z<sub>piv</sub>=0.6. For comparison, I also included fits with `scipy.optimize.curve_fit` and `scipy.optimize.odr.ODR` that both use least square approximation.
-
+From this one receives the following plot where I set z to z<sub>piv</sub>=0.6 and compare the data to several simulation cases.
 ![my_fit](./plots/stellar_vs_halo_mass_my_fit.jpg)
 
 The next task is now to show the trend with halo mass and redshift separately. To exclude one or the other from the data, one simply divides by the respective term from the scaling relation with the best fit parameter:
