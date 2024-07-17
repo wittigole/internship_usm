@@ -74,15 +74,21 @@ The fits are then altered by using M<sub>piv</sub>=4.8* 10^14 M<sub>sun</sub> an
 
 ### TNG300
 
+![tng_data_comparison](./plots/stellar_vs_halo_mass_wo_z_tng.jpg)
+
 We can see in the mass trend plot that there is a deviation between all TNG300 lines. They were computed as the fit of the scaling relation to the set of individual halo data points. However, especially for larger halo masses (essentially above 4* 10<sup>14</sup> solar masses) this fit might not be accurate since there are no clusters that massive in TNG300. The dashed line captures all stellar mass in satellites (within R<sub>500</sub>) as well as twice the stellar half-mass radius of the BCG to exclude the extended ICL. Obviously, this is not enough as there is a large deviation to our data points. The next correction was to only add the stellar masses of galaxies above a certain threshold. I chose 10<sup>10</sup> M<sub>sun</sub> in stellar mass, as this is comparable to what Chiu et al. (2018) did in their study. They integrated their stellar mass function with this value as the lower limit. Unfortunately, this brings the line only marginally closer to our data points. For comparison - although not meaningful - I also show the stellar mass halo mass relation for TNG300 without considering the contribution of BCGs (dash-dotted). This line is in the regime where we want it to be as it roughly captures all data points. Since Chiu et al. (2018) did include BCGs in their analysis, this is just to evaluate the amount of stellar mass in the BCG.
 
 As there is no widely accepted method for determining the contribution of the ICL to the total cluster stellar mass, both lines for TNG300 rather give an upper and lower limit. As described above, taking the total stellar mass of a cluster includes the ICL whereas only considering stars contained within 2 R<sub>0.5,* </sub> of each galaxy's center might miss outer parts of some galaxies. The true value is thus between the two lines. Nevertheless, even the lower boundary deviates strongly from our data.
 
 ### Magneticum
+
+![magneticum_data_comparison](./plots/stellar_vs_halo_mass_wo_z_magneticum.jpg)
+
 The only data available to me is the one listed on their website. It contains the M<sub>500</sub> and M<sub>star</sub> values for cluster in the Box 2 with high resolution, i.e. a box of length 352 MPc/h and $1584^3$ resolution elements (for both gas and DM respectively). There is also the larger Box 2b with side length of 640 MPc/h and $2\cdot 2880^3$ resolution elements.
 
 ### FLAMINGO
 
+![flamingo_data_comparison](./plots/stellar_vs_halo_mass_wo_z_flamingo.jpg)
 
 ### TNG-Clusters
 
@@ -92,9 +98,11 @@ The only data available to me is the one listed on their website. It contains th
 
 ### BAHAMAS
 
-
+![bahamas_data_comparison](./plots/stellar_vs_halo_mass_wo_z_bahamas.jpg)
 
 ### C-OWLs
+
+![cowls_data_comparison](./plots/stellar_vs_halo_mass_wo_z_cowls.jpg)
 
 We have the reference run without AGN feedback (but _with_ SN feedback) and three models where the energy output of BHs is varied. In C-OWLs, the BH stores energy it gains from accreting mass until it reaches the threshold of heating up n<sub>heat</sub>=1 neighbouring gas cells by $\Delta T = 10^8 \rm K$. This is done in the AGN 8.0 model, in AGN 8.5 $\Delta T = 3\cdot 10^8 \rm K$ and in AGN 8.7 $\Delta T = 5\cdot 10^8 \rm K$. Since it takes longer to acquire the necessary amount of energy, the feedback is generally more bursty and energetic in case of higher $\Delta T$.
 
