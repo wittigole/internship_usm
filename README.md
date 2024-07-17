@@ -4,7 +4,7 @@ Note: As this also shows the progress I made during the internship, some plots i
 
 ## Getting familiar with the topic and the data
 
-To get an impression for the kind of data I will be working with, my first task was to update estimates for the stellar masses in several clusters. Chiu et al (2018) first computed stellar masses for ~90 clusters from SED fitting. However, this relies on correct halo masses (M<sub>500</sub>). These were updated since the paper release. That is why I'm computing new stellar masses with the updated halo masses.
+To get an impression for the kind of data I will be working with, my first task was to update estimates for the stellar masses in several clusters. [Chiu et al. (2018)](doi:10.1093/mnras/sty1284) first computed stellar masses for ~90 clusters from SED fitting. However, this relies on correct halo masses (M<sub>500</sub>). These were updated since the paper release. That is why I'm computing new stellar masses with the updated halo masses.
 
 For this, I'm using stellar mass profiles from Hennig et al (2017). Specifically,
 
@@ -72,6 +72,8 @@ The fits are then altered by using M<sub>piv</sub>=4.8* 10^14 M<sub>sun</sub> an
 ![mass trend](./plots/stellar_vs_halo_mass_wo_z.jpg)
 ![redshift trend](./plots/stellar_vs_halo_mass_wo_m500.jpg)
 
+For all the simulations below except TNG300 and TNG-Clusters, I only have stellar masses within R<sub>500</sub> or stellar mass fractions. Consequently, it is not clear whether the ICL is include or exclude in these values. However, the latter is more likely, as one simply takes the sum of the masses of all stellar particles in the halo (or R<sub>500</sub>). One has to make corrections to account for that and a missing lower mass limit as discussed in the [TNG300 section](https://github.com/wittigole/internship_usm?tab=readme-ov-file#tng-clusters).
+
 ### TNG300
 
 ![tng_data_comparison](./plots/stellar_vs_halo_mass_wo_z_tng.jpg)
@@ -84,11 +86,17 @@ As there is no widely accepted method for determining the contribution of the IC
 
 ![magneticum_data_comparison](./plots/stellar_vs_halo_mass_wo_z_magneticum.jpg)
 
-The only data available to me is the one listed on their website. It contains the M<sub>500</sub> and M<sub>star</sub> values for cluster in the Box 2 with high resolution, i.e. a box of length 352 MPc/h and $1584^3$ resolution elements (for both gas and DM respectively). There is also the larger Box 2b with side length of 640 MPc/h and $2\cdot 2880^3$ resolution elements.
+The only data available to me is the one listed on their website. It contains the M<sub>500</sub> and M<sub>star</sub> values for cluster in the Box 2 with high resolution, i.e. a box of length 352 MPc/h and $1584^3$ resolution elements (for both gas and DM respectively). There is also the larger Box 2b with side length of 640 MPc/h and $2\cdot 2880^3$ resolution elements. In the plot above one cannot really distinguish both lines. The reason for this is that, despite one box being roughly eight times larger in volume than the other, the same physical models are used. As the simulation parameters are calibrated to yield certain relations, one would expect both lines to be very similar.
+
+Nevertheless, both lines deviate strongly from our data points. Since there is no easy access to other variations of Magneticum, one cannot give a reason for this.
 
 ### FLAMINGO
 
 ![flamingo_data_comparison](./plots/stellar_vs_halo_mass_wo_z_flamingo.jpg)
+
+The FLAMINGO clusters have stellar masses closer to our data than Magneticum. As for the other simulations, I don't know exactly what the stellar mass includes, only that it is limited to R<sub>500</sub>. Thus, the shown stellar masses might be too large which would lower the deviations to our data. There are 8 variations of FLAMINGO differing in supernovae (SN) and active galactic nuclei (AGN) feedback. They are displayed in two different colors where the color is meaningless. The most prominent line (dashed red) is the one closest to the data points whereas the others are plotted with $\alpha = 0.3$. It is from the variation with stronger SN feedback. Also quite good are the one with increased SN __and__ AGN feedback as well as the one with strong jets. Stronger and strongest AGN feedback actually does not perform as well as the beforementioned variation runs. Thus there is a limit to how strong AGN should be or SN are far more important.
+
+What is good about the FLAMINGO simulations is that they possess clusters with masses above $10^{15} \rm{M}_\odot$. This is important as it matches our data better than TNG300 for example. Additionally, the fit of the scaling relation is more accurate at higher masses.
 
 ### TNG-Clusters
 
