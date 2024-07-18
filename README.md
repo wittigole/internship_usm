@@ -108,10 +108,14 @@ What is good about the FLAMINGO simulations is that they possess clusters with m
 
 ![bahamas_data_comparison](./plots/stellar_vs_halo_mass_wo_z_bahamas.jpg)
 
+WMAP9 cosmology, high AGN, low AGN: AGN heating temperature is raised/lowered by 0.2dex.
+All of the BAHAMAS variations match our data better than any of the FLAMINGO runs does. However, there is still a significant deviation. The best agreement is reached when increasing the AGN feedback strength by raising the AGN heating temperature. (that is...)
+
 ### C-OWLs
 
 ![cowls_data_comparison](./plots/stellar_vs_halo_mass_wo_z_cowls.jpg)
 
+WMAP7 (2011) or Planck XVI (2013) cosmology
 We have the reference run without AGN feedback (but _with_ SN feedback) and three models where the energy output of BHs is varied. In C-OWLs, the BH stores energy it gains from accreting mass until it reaches the threshold of heating up n<sub>heat</sub>=1 neighbouring gas cells by $\Delta T = 10^8 \rm K$. This is done in the AGN 8.0 model, in AGN 8.5 $\Delta T = 3\cdot 10^8 \rm K$ and in AGN 8.7 $\Delta T = 5\cdot 10^8 \rm K$. Since it takes longer to acquire the necessary amount of energy, the feedback is generally more bursty and energetic in case of higher $\Delta T$.
 
 [^1]: Note: From here on, instead of using the abovementioned procedure to compute R<sub>200</sub>, we directly take the M<sub>200</sub> measurements and compute R<sub>200</sub> directly from this. By doing so, we avoid numerical inaccuracies that could arise as M<sub>500</sub> itself was not measured but calculated from the M<sub>200</sub> measurements.
