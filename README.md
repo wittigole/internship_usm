@@ -74,6 +74,16 @@ The fits are then altered by using M<sub>piv</sub>=4.8* 10^14 M<sub>sun</sub> an
 
 For all the simulations below except TNG300 and TNG-Clusters, I only have stellar masses within R<sub>500</sub> or stellar mass fractions. Consequently, it is not clear whether the ICL is include or exclude in these values. However, the latter is more likely, as one simply takes the sum of the masses of all stellar particles in the halo (or R<sub>500</sub>). One has to make corrections to account for that and a missing lower mass limit as discussed in the [TNG300 section](https://github.com/wittigole/internship_usm?tab=readme-ov-file#tng-clusters).
 
+
+Another correction has to be taken into account, namely the different cosmologies applied in the simulations. In our data and [Chiu et al. (2018)](https://academic.oup.com/mnras/article/478/3/3072/4996803?login=false), a flat $\Lambda\text{CDM}$ cosmology is used with the following cosmological parameters (only the ones relevant for this analysis):
+
+$$ \Omega_{\rm m} = 0.309, \hspace{0.5cm} \Omega_{\rm bar} = 0.048$$
+
+Since the total amount of matter in the universe impacts the amount of stellar matter formed, we correct for the different baryonic matter densities by multiplying the stellar masses in each simulation with
+
+$$f_{\rm corr} = \frac{f_{\rm bar}^{\rm data}}{f_{\rm bar}^{\rm sim}} \hspace{0.5cm}\text{where}\hspace{0.5cm} f_{\rm bar} = \frac{\Omega_{\rm bar}}{\Omega_{rm m}}$$
+
+
 ### TNG300
 
 ![tng_data_comparison](./plots/stellar_vs_halo_mass_wo_z_tng.jpg)
@@ -81,6 +91,10 @@ For all the simulations below except TNG300 and TNG-Clusters, I only have stella
 We can see in the mass trend plot that there is a deviation between all TNG300 lines. They were computed as the fit of the scaling relation to the set of individual halo data points. However, especially for larger halo masses (essentially above 4* 10<sup>14</sup> solar masses) this fit might not be accurate since there are no clusters that massive in TNG300. The dashed line captures all stellar mass in satellites (within R<sub>500</sub>) as well as twice the stellar half-mass radius of the BCG to exclude the extended ICL. Obviously, this is not enough as there is a large deviation to our data points. The next correction was to only add the stellar masses of galaxies above a certain threshold. I chose 10<sup>10</sup> M<sub>sun</sub> in stellar mass, as this is comparable to what Chiu et al. (2018) did in their study. They integrated their stellar mass function with this value as the lower limit. Unfortunately, this brings the line only marginally closer to our data points. For comparison - although not meaningful - I also show the stellar mass halo mass relation for TNG300 without considering the contribution of BCGs (dash-dotted). This line is in the regime where we want it to be as it roughly captures all data points. Since [Chiu et al. (2018)](https://academic.oup.com/mnras/article/478/3/3072/4996803?login=false) did include BCGs in their analysis, this is just to evaluate the amount of stellar mass in the BCG.
 
 As there is no widely accepted method for determining the contribution of the ICL to the total cluster stellar mass, both lines for TNG300 rather give an upper and lower limit. As described above, taking the total stellar mass of a cluster includes the ICL whereas only considering stars contained within 2 R<sub>0.5,* </sub> of each galaxy's center might miss outer parts of some galaxies. The true value is thus between the two lines. Nevertheless, even the lower boundary deviates strongly from our data.
+
+IllustrisTNG is also based upon the Planck 2016 cosmological parameters: 
+
+$$ \Omega_{\rm m} = 0.3089, \hspace{0.5cm} \Omega_{\rm bar} = 0.0486, \hspace{0.5cm} h = 0.6774 $$
 
 ### Magneticum
 
@@ -90,6 +104,10 @@ The only data available to me is the one listed on their website. It contains th
 
 Nevertheless, both lines deviate strongly from our data points. Since there is no easy access to other variations of Magneticum, one cannot give a reason for this. Additionally, I only have stellar mass fractions given for each cluster. Presumably, they correspond to all stars within R<sub>500</sub>. Thus, we again have the problem with excluding the ICL.
 
+Magneticum is based upon the WMAP7 cosmology:
+
+$$ \Omega_{\rm m} = 0.272, \hspace{0.5cm} \Omega_{\rm bar} = 0.0456, \hspace{0.5cm} h = 0.704 $$
+
 ### FLAMINGO
 
 ![flamingo_data_comparison](./plots/stellar_vs_halo_mass_wo_z_flamingo.jpg)
@@ -98,11 +116,9 @@ The FLAMINGO clusters have stellar masses closer to our data than Magneticum. As
 
 What is good about the FLAMINGO simulations is that they possess clusters with masses above $10^{15} \rm{M}_\odot$. This is important as it matches our data better than TNG300 for example. Additionally, the fit of the scaling relation is more accurate at higher masses.
 
-### TNG-Clusters
+All of the eight FLAMINGO variations use the D3A cosmology with the following parameters:
 
-
-### mTNG
-
+$$ \Omega_{\rm m} = 0.306, \hspace{0.5cm} \Omega_{\rm bar} = 0.0486, \hspace{0.5cm} h = 0.681 $$
 
 ### BAHAMAS
 
@@ -110,6 +126,10 @@ What is good about the FLAMINGO simulations is that they possess clusters with m
 
 WMAP9 cosmology, high AGN, low AGN: AGN heating temperature is raised/lowered by 0.2dex.
 All of the BAHAMAS variations match our data better than any of the FLAMINGO runs does. However, there is still a significant deviation. The best agreement is reached when increasing the AGN feedback strength by raising the AGN heating temperature. (that is...)
+
+The BAHAMAS simulations are based upon the WMAP9 cosmological parameters, namely:
+
+$$ \Omega_{\rm m} = 0.279, \hspace{0.5cm} \Omega_{\rm bar} = 0.0463, \hspace{0.5cm} h = 0.700 $$
 
 ### C-OWLs
 
@@ -119,3 +139,13 @@ WMAP7 (2011) or Planck XVI (2013) cosmology
 We have the reference run without AGN feedback (but _with_ SN feedback) and three models where the energy output of BHs is varied. In C-OWLs, the BH stores energy it gains from accreting mass until it reaches the threshold of heating up n<sub>heat</sub>=1 neighbouring gas cells by $\Delta T = 10^8 \rm K$. This is done in the AGN 8.0 model, in AGN 8.5 $\Delta T = 3\cdot 10^8 \rm K$ and in AGN 8.7 $\Delta T = 5\cdot 10^8 \rm K$. Since it takes longer to acquire the necessary amount of energy, the feedback is generally more bursty and energetic in case of higher $\Delta T$.
 
 [^1]: Note: From here on, instead of using the abovementioned procedure to compute R<sub>200</sub>, we directly take the M<sub>200</sub> measurements and compute R<sub>200</sub> directly from this. By doing so, we avoid numerical inaccuracies that could arise as M<sub>500</sub> itself was not measured but calculated from the M<sub>200</sub> measurements.
+
+Just as Magneticum, C-OWLs is absed upon the WMAP7 cosmological parameters (see there).
+
+### TNG-Clusters
+
+
+
+### mTNG
+
+
