@@ -150,6 +150,18 @@ Just as Magneticum, C-OWLs is based upon the WMAP7 cosmological parameters (see 
 ### mTNG [^6]
 
 
+## Discussion
+
+Now that we have seen the final (as of right now) [plot](https://github.com/wittigole/internship_usm/blob/main/plots/stellar_vs_halo_mass_wo_z_best_sims_rescaled.jpg), some remarks have to be adressed and discussed.
+
+1. Some cluster catalogs from simulations are taken at $z=0$ whereas others are taken at redshifts close to 0.6. Ideally, one would prefer $z\approx 0.6$ as it represents z<sub>piv</sub> which is roughly the median redshift of our cluster sample. However, I couldn't access other snapshots for some simulations and had to settle for redshift zero. Though, this might not be as bad since the redshift evolution of our data (see respective plot) is almost negligible. So it wouldn't matter, at which redshift we consider the data. We can compare with the simulations basically at all redshifts.
+
+2. For TNG300, we used mass-to-light ratios in the z-band to confirm that there are no huge deviations between the simulation and our clusters. We plotted the zband magnitude of a galaxy against its stellar mass and found agreement. Unfortunately, I had no access to z-band magnitudes of cluster galaxies for the other simulations either. The stellar masses are determined from the luminosities of mainly elliptical, red galaxies as they constitute most of the stellar mass of a cluster. If the simulations overestimate the luminosities in red bands, the stellar masses will alikely not agree with pur observational cluster sample.
+
+3. contents of the stellar mass: ICL, BCG, satellites (mass cut??)
+
+
+
 [^1]: Note: From here on, instead of using the abovementioned procedure to compute R<sub>200</sub>, we directly take the M<sub>200</sub> measurements and compute R<sub>200</sub> directly from this. By doing so, we avoid numerical inaccuracies that could arise as M<sub>500</sub> itself was not measured but calculated from the M<sub>200</sub> measurements.
 
 [^2]: https://www.tng-project.org/
