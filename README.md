@@ -89,7 +89,7 @@ Thereby, we receive the following results for the best simulation variation runs
 
 In the following, we will discuss the performance of each of the simulations individually and compare (if applicable) different variation runs.
 
-### TNG300
+### TNG300 [^2]
 
 ![tng_data_comparison](./plots/stellar_vs_halo_mass_wo_z_tng.jpg)
 
@@ -117,7 +117,7 @@ $$ \Omega_{\rm m} = 0.272, \hspace{0.5cm} \Omega_{\rm bar} = 0.0456, \hspace{0.5
 
 ![flamingo_data_comparison](./plots/stellar_vs_halo_mass_wo_z_flamingo.jpg)
 
-The FLAMINGO clusters have stellar masses closer to our data than Magneticum. As for the other simulations, I don't know exactly what the stellar mass includes, only that it is limited to R<sub>500</sub>. Thus, the shown stellar masses might be too large which would lower the deviations to our data. There are 8 variations of FLAMINGO differing in supernovae (SN) and active galactic nuclei (AGN) feedback. They are displayed in two different colors where the color is meaningless. The most prominent line (dashed red) is the one closest to the data points whereas the others are plotted with $\alpha = 0.3$. It is from the variation with stronger SN feedback. Also quite good are the one with increased SN _and_ AGN feedback as well as the one with strong jets. Stronger and strongest AGN feedback actually does not perform as well as the beforementioned variation runs. Thus there is a limit to how strong AGN should be or SN are far more important.
+The FLAMINGO ([Schaye et al. (2023)](https://academic.oup.com/mnras/article/526/4/4978/7246074)) clusters have stellar masses closer to our data than Magneticum. As for the other simulations, I don't know exactly what the stellar mass includes, only that it is limited to R<sub>500</sub>. Thus, the shown stellar masses might be too large which would lower the deviations to our data. There are 8 variations of FLAMINGO differing in supernovae (SN) and active galactic nuclei (AGN) feedback. They are displayed in two different colors where the color is meaningless. The most prominent line (dashed red) is the one closest to the data points whereas the others are plotted with $\alpha = 0.3$. It is from the variation with stronger SN feedback. Also quite good are the one with increased SN _and_ AGN feedback as well as the one with strong jets. Stronger and strongest AGN feedback actually does not perform as well as the beforementioned variation runs. Thus there is a limit to how strong AGN should be or SN are far more important.
 
 What is good about the FLAMINGO simulations is that they possess clusters with masses above $10^{15} \rm{M}_\odot$. This is important as it matches our data better than TNG300 for example. Additionally, the fit of the scaling relation is more accurate at higher masses.
 
@@ -143,9 +143,7 @@ $$ \Omega_{\rm m} = 0.279, \hspace{0.5cm} \Omega_{\rm bar} = 0.0463, \hspace{0.5
 WMAP7 (2011) or Planck XVI (2013) cosmology
 We have the reference run without AGN feedback (but _with_ SN feedback) and three models where the energy output of BHs is varied. In C-OWLs, the BH stores energy it gains from accreting mass until it reaches the threshold of heating up n<sub>heat</sub>=1 neighbouring gas cells by $\Delta T = 10^8 \rm K$. This is done in the AGN 8.0 model, in AGN 8.5 $\Delta T = 3\cdot 10^8 \rm K$ and in AGN 8.7 $\Delta T = 5\cdot 10^8 \rm K$. Since it takes longer to acquire the necessary amount of energy, the feedback is generally more bursty and energetic in case of higher $\Delta T$.
 
-[^1]: Note: From here on, instead of using the abovementioned procedure to compute R<sub>200</sub>, we directly take the M<sub>200</sub> measurements and compute R<sub>200</sub> directly from this. By doing so, we avoid numerical inaccuracies that could arise as M<sub>500</sub> itself was not measured but calculated from the M<sub>200</sub> measurements.
-
-Just as Magneticum, C-OWLs is absed upon the WMAP7 cosmological parameters (see there).
+Just as Magneticum, C-OWLs is based upon the WMAP7 cosmological parameters (see there).
 
 ### TNG-Clusters
 
@@ -154,3 +152,6 @@ Just as Magneticum, C-OWLs is absed upon the WMAP7 cosmological parameters (see 
 ### mTNG
 
 
+[^1]: Note: From here on, instead of using the abovementioned procedure to compute R<sub>200</sub>, we directly take the M<sub>200</sub> measurements and compute R<sub>200</sub> directly from this. By doing so, we avoid numerical inaccuracies that could arise as M<sub>500</sub> itself was not measured but calculated from the M<sub>200</sub> measurements.
+
+[^2]: https://www.tng-project.org/
