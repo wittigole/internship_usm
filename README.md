@@ -83,6 +83,11 @@ Since the total amount of matter in the universe impacts the amount of stellar m
 
 $$f_{\rm corr} = \frac{f_{\rm bar}^{\rm data}}{f_{\rm bar}^{\rm sim}} \hspace{0.5cm}\text{where}\hspace{0.5cm} f_{\rm bar} = \frac{\Omega_{\rm bar}}{\Omega_{rm m}}$$
 
+Thereby, we receive the following results for the best simulation variation runs.
+
+![best_sims](./plots/stellar_vs_halo_mass_wo_z_best_sims_rescaled.jpg)
+
+In the following, we will discuss the performance of each of the simulations individually and compare (if applicable) different variation runs.
 
 ### TNG300
 
