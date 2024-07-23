@@ -101,7 +101,7 @@ IllustrisTNG is also based upon the Planck 2016 cosmological parameters:
 
 $$ \Omega_{\rm m} = 0.3089, \hspace{0.5cm} \Omega_{\rm bar} = 0.0486, \hspace{0.5cm} h = 0.6774 $$
 
-### Magneticum
+### Magneticum [^3]
 
 ![magneticum_data_comparison](./plots/stellar_vs_halo_mass_wo_z_magneticum.jpg)
 
@@ -113,7 +113,7 @@ Magneticum is based upon the WMAP7 cosmology:
 
 $$ \Omega_{\rm m} = 0.272, \hspace{0.5cm} \Omega_{\rm bar} = 0.0456, \hspace{0.5cm} h = 0.704 $$
 
-### FLAMINGO
+### FLAMINGO [^4]
 
 ![flamingo_data_comparison](./plots/stellar_vs_halo_mass_wo_z_flamingo.jpg)
 
@@ -129,8 +129,7 @@ $$ \Omega_{\rm m} = 0.306, \hspace{0.5cm} \Omega_{\rm bar} = 0.0486, \hspace{0.5
 
 ![bahamas_data_comparison](./plots/stellar_vs_halo_mass_wo_z_bahamas.jpg)
 
-WMAP9 cosmology, high AGN, low AGN: AGN heating temperature is raised/lowered by 0.2dex.
-All of the BAHAMAS variations match our data better than any of the FLAMINGO runs does. However, there is still a significant deviation. The best agreement is reached when increasing the AGN feedback strength by raising the AGN heating temperature. (that is...)
+All of the BAHAMAS ([McCarthy et al. (2016)](https://academic.oup.com/mnras/article/465/3/2936/2417021)) variations match our data better than any of the FLAMINGO runs does. However, there is still a significant deviation. The best agreement is reached when increasing the AGN feedback strength by raising the AGN heating temperature. In the two variations of the fiducial model of BAHAMAS, the heating temperatur of AGN is lowered (raised) by 0.2 dex. This means, that neighboring gas cells receive less (more) thermal energy, which decreases (increases) the AGN feedback strength. As visible in the plot, this has no strong impact on the stellar masses of galaxy clusters though.
 
 The BAHAMAS simulations are based upon the WMAP9 cosmological parameters, namely:
 
@@ -140,18 +139,25 @@ $$ \Omega_{\rm m} = 0.279, \hspace{0.5cm} \Omega_{\rm bar} = 0.0463, \hspace{0.5
 
 ![cowls_data_comparison](./plots/stellar_vs_halo_mass_wo_z_cowls.jpg)
 
-WMAP7 (2011) or Planck XVI (2013) cosmology
-We have the reference run without AGN feedback (but _with_ SN feedback) and three models where the energy output of BHs is varied. In C-OWLs, the BH stores energy it gains from accreting mass until it reaches the threshold of heating up n<sub>heat</sub>=1 neighbouring gas cells by $\Delta T = 10^8 \rm K$. This is done in the AGN 8.0 model, in AGN 8.5 $\Delta T = 3\cdot 10^8 \rm K$ and in AGN 8.7 $\Delta T = 5\cdot 10^8 \rm K$. Since it takes longer to acquire the necessary amount of energy, the feedback is generally more bursty and energetic in case of higher $\Delta T$.
+We have the reference run without AGN feedback (but _with_ SN feedback) and three models where the energy output of BHs is varied. In C-OWLs ([Le Brun et al. (2014)](https://academic.oup.com/mnras/article/441/2/1270/1064000)), the BH stores energy it gains from accreting mass until it reaches the threshold of heating up n<sub>heat</sub>=1 neighbouring gas cells by $\Delta T = 10^8 \rm K$. This is done in the AGN 8.0 model, in AGN 8.5 $\Delta T = 3\cdot 10^8 \rm K$ and in AGN 8.7 $\Delta T = 5\cdot 10^8 \rm K$. Since it takes longer to acquire the necessary amount of energy, the feedback is generally more bursty and energetic in case of higher $\Delta T$.
 
 Just as Magneticum, C-OWLs is based upon the WMAP7 cosmological parameters (see there).
 
-### TNG-Clusters
+### TNG-Clusters [^5]
 
 
 
-### mTNG
+### mTNG [^6]
 
 
 [^1]: Note: From here on, instead of using the abovementioned procedure to compute R<sub>200</sub>, we directly take the M<sub>200</sub> measurements and compute R<sub>200</sub> directly from this. By doing so, we avoid numerical inaccuracies that could arise as M<sub>500</sub> itself was not measured but calculated from the M<sub>200</sub> measurements.
 
 [^2]: https://www.tng-project.org/
+
+[^3]: http://www.magneticum.org/
+
+[^4]: https://flamingo.strw.leidenuniv.nl/
+
+[^5]: https://www.tng-project.org/cluster/
+
+[^6]: https://www.mtng-project.org/
