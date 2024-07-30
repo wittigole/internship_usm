@@ -81,11 +81,15 @@ $$ \Omega_{\rm m} = 0.309, \hspace{0.5cm} \Omega_{\rm bar} = 0.048$$
 
 Since the total amount of matter in the universe impacts the amount of stellar matter formed, we correct for the different baryonic matter densities by multiplying the stellar masses in each simulation with
 
-$$f_{\rm corr} = \frac{f_{\rm bar}^{\rm data}}{f_{\rm bar}^{\rm sim}} \hspace{0.5cm}\text{where}\hspace{0.5cm} f_{\rm bar} = \frac{\Omega_{\rm bar}}{\Omega_{rm m}}$$
+$$f_{\rm corr} = \frac{f_{\rm bar}^{\rm data}}{f_{\rm bar}^{\rm sim}} \hspace{0.5cm}\text{where}\hspace{0.5cm} f_{\rm bar} = \frac{\Omega_{\rm bar}}{\Omega_{\rm m}}$$
 
 Thereby, we receive the following results for the best simulation variation runs.
 
 ![best_sims](./plots/stellar_vs_halo_mass_wo_z_best_sims_rescaled.jpg)
+
+Another correction one can do is to subtract the simulated BCG stellar masses from the total stellar masses of the clusters. This step is necessary as e.g. in TNG, the BCG stellar masses are too high when compared to observations. For this reason, we fit the scaling relation to the reduced stellar masses and add the scaling relation fit of the observed BCG masses on top of it. We use the BCG masses summarized by [Stott et al. (2010)](https://iopscience.iop.org/article/10.1088/0004-637X/718/1/23#fnref-apj340771r41). Their halo masses are given within R<sub>200</sub>, so they are converted to M<sub>500</sub> using the abovementioned methods. One obtains e.g. the dotted line in the TNG plot. The `scipy.optimize.odr` fitting routine yields the following for the normalization and power law index.
+
+$$ M_{\rm norm} = (8.3\pm 1.0)\times 10^{11}\, \rm M_\odot \hspace{0.5cm}\text{and}\hspace{0.5cm} A_\ast = 0.50\pm 0.15 $$
 
 In the following, we will discuss the performance of each of the simulations individually and compare (if applicable) different variation runs.
 
@@ -96,6 +100,8 @@ In the following, we will discuss the performance of each of the simulations ind
 We can see in the mass trend plot that there is a deviation between all TNG300 lines. They were computed as the fit of the scaling relation to the set of individual halo data points. However, especially for larger halo masses (essentially above 4* 10<sup>14</sup> solar masses) this fit might not be accurate since there are no clusters that massive in TNG300. The dashed line captures all stellar mass in satellites (within R<sub>500</sub>) as well as twice the stellar half-mass radius of the BCG to exclude the extended ICL. Obviously, this is not enough as there is a large deviation to our data points. The next correction was to only add the stellar masses of galaxies above a certain threshold. I chose 10<sup>10</sup> M<sub>sun</sub> in stellar mass, as this is comparable to what Chiu et al. (2018) did in their study. They integrated their stellar mass function with this value as the lower limit. Unfortunately, this brings the line only marginally closer to our data points. For comparison - although not meaningful - I also show the stellar mass halo mass relation for TNG300 without considering the contribution of BCGs (dash-dotted). This line is in the regime where we want it to be as it roughly captures all data points. Since [Chiu et al. (2018)](https://academic.oup.com/mnras/article/478/3/3072/4996803?login=false) did include BCGs in their analysis, this is just to evaluate the amount of stellar mass in the BCG.
 
 As there is no widely accepted method for determining the contribution of the ICL to the total cluster stellar mass, both lines for TNG300 rather give an upper and lower limit. As described above, taking the total stellar mass of a cluster includes the ICL whereas only considering stars contained within 2 R<sub>0.5,* </sub> of each galaxy's center might miss outer parts of some galaxies. The true value is thus between the two lines. Nevertheless, even the lower boundary deviates strongly from our data.
+
+When replacing the BCG stellar masses of TNG300 with those from [Stott et al. (2010)](https://iopscience.iop.org/article/10.1088/0004-637X/718/1/23#fnref-apj340771r41), we obtain significantly better results for the total scaling relation (compare dotted red line). TNG300 still has to large stellar masses, but all the corrections pay off.
 
 IllustrisTNG is also based upon the Planck 2016 cosmological parameters: 
 
