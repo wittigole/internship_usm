@@ -50,11 +50,18 @@ def mass_from_profile(r, c, r_err, c_err):
 
     return M / Msun, M_err / Msun #in solar masses
 
-def value_from_radii(r200_guess, r500, c):
+def value_from_r500(r200_guess, r500, c):
     """ return THE value at r200 (guess) given r500 and the concentration """
     num = (r200_guess/r500)**3 * (np.log((r200_guess + c*r500)/r200_guess) - c*r500 / (r200_guess + c*r500))
     den = np.log(1+c) - c/(1+c)
     value = num/den - 2.5
+    return value
+
+def value_from_r200(r500_guess, r200, c):
+    """ return THE value at r500 (guess) given r200 and the concentration """
+    num = (r500_guess/r200)**3 * (np.log((r500_guess + c*r200)/r500_guess) - c*r200 / (r500_guess + c*r200))
+    den = np.log(1+c) - c/(1+c)
+    value = num/den - 0.4
     return value
 
 def find_r200(r500, c):
@@ -66,9 +73,38 @@ def find_r200(r500, c):
     r200_guess = r500
 
     for i in range(r500.shape[0]):
-        r200[i] = root(value_from_radii, args=(r500[i], c), x0=r200_guess[i]).x
+        r200[i] = root(value_from_r500, args=(r500[i], c), x0=r200_guess[i]).x
         # r200[i] = root_scalar(value_from_radii, args=(r500[i], c), x0=r200_guess[i]).root
     return r200
+
+def find_r500(r200, c):
+    """ return the r500 given r200 and the concentration """
+    if isinstance(r200, (int, float)):
+        r200 = np.array([r200])
+
+    r500 = np.zeros(r200.shape[0])
+    r500_guess = r200
+
+    for i in range(r200.shape[0]):
+        r500[i] = root(value_from_r200, args=(r200[i], c), x0=r500_guess[i]).x
+        # r500[i] = root_scalar(value_from_radii, args=(r200[i], c), x0=r500_guess[i]).root
+    return r500
+
+def m500_to_m200(c, m500, m500_err):
+    r500, r500_err = mass_to_radius(m500, m500_err, delta = 500)
+    r200 = find_r200(r500, c)
+    
+    m200 = m500 * 0.4 * (r200/r500)**3
+    m200_err = m500_err * 0.4 * (r200/r500)**3
+    return m200, m200_err
+
+def m200_to_m500(c, m200, m200_err):
+    r200, r200_err = mass_to_radius(m200, m200_err, delta = 200)
+    r500 = find_r500(r200, c)
+    
+    m500 = m200 * 2.5 * (r500/r200)**3
+    m500_err = m200_err * 2.5 * (r500/r200)**3
+    return m500, m500_err
 
 def update_ratio(r500_old, r500_new, c500_new, c500_old, r500_old_err, r500_new_err, c500_new_err, c500_old_err):
     """ return the ratio between the old and the new stellar mass """
