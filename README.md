@@ -87,6 +87,8 @@ Thereby, we receive the following results for the best simulation variation runs
 
 ![best_sims](./plots/stellar_vs_halo_mass_wo_z_best_sims_rescaled.jpg)
 
+%TODO: needs update for TNG and FLAMINGO
+
 Another correction one can do is to subtract the simulated BCG stellar masses from the total stellar masses of the clusters. This step is necessary as e.g. in TNG, the BCG stellar masses are too high when compared to observations. For this reason, we fit the scaling relation to the reduced stellar masses and add the scaling relation fit of the observed BCG masses on top of it. We use the BCG masses summarized by [Stott et al. (2010)](https://iopscience.iop.org/article/10.1088/0004-637X/718/1/23#fnref-apj340771r41). Their halo masses are given within R<sub>200</sub>, so they are converted to M<sub>500</sub> using the abovementioned methods. One obtains e.g. the dotted line in the TNG plot. The `scipy.optimize.odr` fitting routine yields the following for the normalization and power law index.
 
 $$ M_{\rm norm} = (8.3\pm 1.0)\times 10^{11}\, \rm M_\odot \hspace{0.5cm}\text{and}\hspace{0.5cm} A_\ast = 0.50\pm 0.15 $$
@@ -96,6 +98,8 @@ In the following, we will discuss the performance of each of the simulations ind
 ### TNG300 [^2]
 
 ![tng_data_comparison](./plots/stellar_vs_halo_mass_wo_z_tng.jpg)
+
+%TODO: text needs update
 
 We can see in the mass trend plot that there is a deviation between all TNG300 lines. They were computed as the fit of the scaling relation to the set of individual halo data points. However, especially for larger halo masses (essentially above 4* 10<sup>14</sup> solar masses) this fit might not be accurate since there are no clusters that massive in TNG300. The dashed line captures all stellar mass in satellites (within R<sub>500</sub>) as well as twice the stellar half-mass radius of the BCG to exclude the extended ICL. Obviously, this is not enough as there is a large deviation to our data points. The next correction was to only add the stellar masses of galaxies above a certain threshold. I chose 10<sup>10</sup> M<sub>sun</sub> in stellar mass, as this is comparable to what Chiu et al. (2018) did in their study. They integrated their stellar mass function with this value as the lower limit. Unfortunately, this brings the line only marginally closer to our data points. For comparison - although not meaningful - I also show the stellar mass halo mass relation for TNG300 without considering the contribution of BCGs (dash-dotted). This line is in the regime where we want it to be as it roughly captures all data points. Since [Chiu et al. (2018)](https://academic.oup.com/mnras/article/478/3/3072/4996803?login=false) did include BCGs in their analysis, this is just to evaluate the amount of stellar mass in the BCG.
 
@@ -111,6 +115,8 @@ $$ \Omega_{\rm m} = 0.3089, \hspace{0.5cm} \Omega_{\rm bar} = 0.0486, \hspace{0.
 
 ![magneticum_data_comparison](./plots/stellar_vs_halo_mass_wo_z_magneticum.jpg)
 
+%TODO: text and plot need update
+
 The only data available to me is the one listed on their website. It contains the M<sub>500</sub> and M<sub>star</sub> values for cluster in the Box 2 with high resolution, i.e. a box of length 352 MPc/h and $1584^3$ resolution elements (for both gas and DM respectively). There is also the larger Box 2b with side length of 640 MPc/h and $2\cdot 2880^3$ resolution elements ([Hirschmann et al. (2014)](https://academic.oup.com/mnras/article/442/3/2304/1039443), [Ragagnin et al. (2017)](https://academic.oup.com/mnras/article/486/3/4001/5475127)). In the plot above one cannot really distinguish both lines. The reason for this is that, despite one box being roughly eight times larger in volume than the other, the same physical models are used. As the simulation parameters are calibrated to yield certain relations, one would expect both lines to be very similar.
 
 Nevertheless, both lines deviate strongly from our data points. Since there is no easy access to other variations of Magneticum, one cannot give a reason for this. Additionally, I only have stellar mass fractions given for each cluster. Presumably, they correspond to all stars within R<sub>500</sub>. Thus, we again have the problem with excluding the ICL.
@@ -121,7 +127,9 @@ $$ \Omega_{\rm m} = 0.272, \hspace{0.5cm} \Omega_{\rm bar} = 0.0456, \hspace{0.5
 
 ### FLAMINGO [^4]
 
-![flamingo_data_comparison](./plots/stellar_vs_halo_mass_wo_z_flamingo.jpg)
+![flamingo_data_comparison](./plots/stellar_vs_halo_mass_wo_z_flamingo_no_icl.jpg)
+
+%TODO: text needs update
 
 The FLAMINGO ([Schaye et al. (2023)](https://academic.oup.com/mnras/article/526/4/4978/7246074)) clusters have stellar masses closer to our data than Magneticum. As for the other simulations, I don't know exactly what the stellar mass includes, only that it is limited to R<sub>500</sub>. Thus, the shown stellar masses might be too large which would lower the deviations to our data. There are 8 variations of FLAMINGO differing in supernovae (SN) and active galactic nuclei (AGN) feedback. They are displayed in two different colors where the color is meaningless. The most prominent line (dashed red) is the one closest to the data points whereas the others are plotted with $\alpha = 0.3$. It is from the variation with stronger SN feedback. Also quite good are the one with increased SN _and_ AGN feedback as well as the one with strong jets. Stronger and strongest AGN feedback actually does not perform as well as the beforementioned variation runs. Thus there is a limit to how strong AGN should be or SN are far more important.
 
