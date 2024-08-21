@@ -52,16 +52,16 @@ $$ P(x|\mu,\sigma) = \cfrac{1}{x\sigma \sqrt{2\pi}}\exp\left(\cfrac{(\ln{x} - \m
 
 We need a lognormal distribution here because M<sub>* </sub> is normally distributed. However, since we're working with log(M<sub>* </sub>), this quantity is lognormally distributed. We can now compute the value of the lognormal distribution for every data point and add them up. The result is the Log-Likelihood for this set of parameters. The goal is to maximize this quantity by varying the parameters within the range in a smart way (so it does not take too long). The results from my fit to the new stellar masses can be found (not yet) [here](./files/chain_no_measurement_error_1/_1_stats.dat). The second block of values gives the results of the best fit for the parameters in order and the standard deviation. The latter is computed by evaluating different sets of parameters that have similar Log-Likelihoods. The results are:
 
-+ normalization: A<sub>* </sub> = (4.48 +- 0.24) * 10^12 M<sub>sun</sub>
-+ halo mass trend: B<sub>* </sub> = 0.716 +- 0.207
-+ redshift trend: C<sub>* </sub> = 0.184 +- 0.499
-+ scatter: D<sub>* </sub> = 0.055 +- 0.042
++ normalization: A<sub>* </sub> = $(4.48 \pm 0.24) \cdot 10^{12} \rm M_{\odot}$
++ halo mass trend: B<sub>* </sub> = 0.716 $\pm$ 0.207
++ redshift trend: C<sub>* </sub> = 0.184 $\pm$ 0.499
++ scatter: D<sub>* </sub> = 0.055 $\pm$ 0.042
 
 The next task is now to show the trend with halo mass and redshift separately. To exclude one or the other from the data, one simply divides by the respective term from the scaling relation with the best fit parameter:
 
 $$ \left(\cfrac{M_{500}}{M_{\rm piv}}\right)^{B_\ast} \hspace{0.5cm}\text{or}\hspace{0.5cm}\left(\cfrac{1+z}{1+z_{\rm piv}}\right)^{C_\ast} $$
 
-The fits are then altered by using $M_{\rm piv}=6\cdot 10^{14}\, \rm M_{\odot}$ and $z_{\rm piv}=0.6$ for M<sub>500</sub> and z, respectively. This procedure yields the following plots.
+The fits are then altered by using $M_{\rm piv}=6\cdot 10^{14} \rm M_{\odot}$ and $z_{\rm piv}=0.6$ for M<sub>500</sub> and z, respectively. This procedure yields the following plots.
 
 ![mass trend](./plots/stellar_vs_halo_mass_wo_z.jpg)
 ![redshift trend](./plots/stellar_vs_halo_mass_wo_m500.jpg)
@@ -76,19 +76,19 @@ Since the total amount of matter in the universe impacts the amount of stellar m
 
 $$f_{\rm corr} = \frac{f_{\rm bar}^{\rm data}}{f_{\rm bar}^{\rm sim}} \hspace{0.5cm}\text{where}\hspace{0.5cm} f_{\rm bar} = \frac{\Omega_{\rm bar}}{\Omega_{\rm m}}$$
 
-Additionally, we subtract the ICL masses in the simulations (if provided) to receive a more accurate picture of the simulated stellar masses. In TNG300 and FLAMINGO, we choose an aperture of 50 pkpc, centered on the galactic center, to define the BCG. Every star particle outside of this region bound to the central subhalo is considered as ICL and treated accordingly. For Magneticum, the aperture is $2\, R_{0.5,\,\ast}$.
+Additionally, we subtract the ICL masses in the simulations (if provided) to receive a more accurate picture of the simulated stellar masses. In TNG300 and FLAMINGO, we choose an aperture of 50 pkpc, centered on the galactic center, to define the BCG. Every star particle outside of this region bound to the central subhalo is considered as ICL and treated accordingly. For Magneticum, the aperture is $2 R_{0.5,\ast}$.
 
 Thereby, we receive the following results for the best simulation variation runs.
 
 ![best_sims](./plots/stellar_vs_halo_mass_wo_z_best_sims.jpg)
 
-One can still see significant deviations for BAHAMAS, C-OWLs and Magneticum. The former two are special because they still include the ICL, thus yielding higher stellar masses. The significant deviation for MAagneticum can be explained with the huge BCG masses ($\sim 10^{13}\,\rm M_{\odot}$) found. Altough they capture stars within twice the stellar halfmass radius, this is still an order of magnitude too large compared to observations and other simulations.
+One can still see significant deviations for BAHAMAS, C-OWLs and Magneticum. The former two are special because they still include the ICL, thus yielding higher stellar masses. The significant deviation for Magneticum can be explained with the huge BCG masses ($\sim 10^{13}\rm M_{\odot}$) found. Altough they capture stars within twice the stellar halfmass radius, this is still an order of magnitude too large compared to observations and other simulations.
 
 TNG300 and the fiducial FLAMINGO model perform best with only tiny deviations to the fits of the SPT clusters.
 
 Another correction one can do is to subtract the simulated BCG stellar masses from the total stellar masses of the clusters. This step is necessary as e.g. in TNG, the BCG stellar masses are too high when compared to observations. For this reason, we fit the scaling relation to the reduced stellar masses and add the scaling relation fit of the observed BCG masses on top of it. We use the BCG masses summarized by [Stott et al. (2010)](https://iopscience.iop.org/article/10.1088/0004-637X/718/1/23#fnref-apj340771r41). Their halo masses are given within R<sub>200</sub>, so they are converted to M<sub>500</sub> using the abovementioned methods. One obtains e.g. the dotted line in the TNG plot. The MCMC fitting routine yields the following for the normalization and power law index.
 
-$$ M_{\rm norm} = (1.20\pm 0.33)\times 10^{12}\, \rm M_\odot \hspace{0.5cm}\text{and}\hspace{0.5cm} B_\ast = 0.44\pm 0.01 $$
+$$ M_{\rm norm} = (1.20\pm 0.33)\times 10^{12} \rm M_\odot \hspace{0.5cm}\text{and}\hspace{0.5cm} B_\ast = 0.44\pm 0.01 $$
 
 However, for TNG this does not improve the fit anymore. One has to be careful with the apertures used for the BCG defiiton here and in [Stott et al. (2010)](https://iopscience.iop.org/article/10.1088/0004-637X/718/1/23#fnref-apj340771r41).
 
@@ -98,7 +98,7 @@ In the following, we will discuss the performance of each of the simulations ind
 
 ![tng_data_comparison](./plots/stellar_vs_halo_mass_wo_z_tng.jpg)
 
-We can see in the mass trend plot that there is a deviation between all TNG300 lines. They were computed as the fit of the scaling relation to the set of individual halo data points. However, especially for larger halo masses (essentially above $\sim4\cdot 10^{14}\,\rm M_{\odot}$) this fit might not be accurate since there are no clusters that massive in TNG300. The dashed line captures all stellar mass in satellites (within R<sub>500</sub>) as well as an aperture of 50 pkpc centered on the BCG to exclude the extended ICL. This improves the fit significantly in comparison to the fit including all stellar matter within R<sub>500</sub> (solid line), yet there still is a deviation to our data points. The next correction is to only add the stellar masses of galaxies above a certain threshold. I chose $10^{10}\,\rm M_{\odot}$ in stellar mass, as this is comparable to what [Chiu et al. (2018)](https://academic.oup.com/mnras/article/478/3/3072/4996803?login=false) did in their study. They integrated their stellar mass function with this value as the lower limit. This brings the line only marginally closer to our data points (dotted line). For comparison, we also show as the dashdotted line the entire BCG being removed and replaced by a mean BCG mass from an observational sample ([Stott et al. (2010)](https://iopscience.iop.org/article/10.1088/0004-637X/718/1/23#fnref-apj340771r41)). As one can see, this doe not really improve the fit, rather the mass slope increases. Nevertheless, by executing the abovementioned corrections, the TNG300 performance can be improved significantly.
+We can see in the mass trend plot that there is a deviation between all TNG300 lines. They were computed as the fit of the scaling relation to the set of individual halo data points. However, especially for larger halo masses (essentially above $\sim4\cdot 10^{14}\rm M_{\odot}$) this fit might not be accurate since there are no clusters that massive in TNG300. The dashed line captures all stellar mass in satellites (within R<sub>500</sub>) as well as an aperture of 50 pkpc centered on the BCG to exclude the extended ICL. This improves the fit significantly in comparison to the fit including all stellar matter within R<sub>500</sub> (solid line), yet there still is a deviation to our data points. The next correction is to only add the stellar masses of galaxies above a certain threshold. I chose $10^{10}\rm M_{\odot}$ in stellar mass, as this is comparable to what [Chiu et al. (2018)](https://academic.oup.com/mnras/article/478/3/3072/4996803?login=false) did in their study. They integrated their stellar mass function with this value as the lower limit. This brings the line only marginally closer to our data points (dotted line). For comparison, we also show as the dashdotted line the entire BCG being removed and replaced by a mean BCG mass from an observational sample ([Stott et al. (2010)](https://iopscience.iop.org/article/10.1088/0004-637X/718/1/23#fnref-apj340771r41)). As one can see, this doe not really improve the fit, rather the mass slope increases. Nevertheless, by executing the abovementioned corrections, the TNG300 performance can be improved significantly.
 
 IllustrisTNG is also based upon the Planck 2016 cosmological parameters: 
 
@@ -160,6 +160,11 @@ Just as Magneticum, C-OWLs is based upon the WMAP7 cosmological parameters (see 
 
 ![redshift_trend_flamingo_tng](./plots/stellar_vs_halo_mass_wo_m500_flamingo_tng.jpg)
 
+While the mass trends of the simulations match the one of the SPT clusters quite well already, this is not the case for the redshift trends. In the plot above you can see our fit (green) and the [Chiu et al. (2018)](https://academic.oup.com/mnras/article/478/3/3072/4996803?login=false) one (blue) as weel as all of the FLAMINGO runs and the TNG line (brown). Similar groupings occur for FLAMINGO as for the mass trend plot. Additionall, the strong jets variation still amtches our data the best. We can see strong differences in the slope between the SPT clusters (no trend), TNG ($C_{\ast}\sim 0.5$), and FLAMINGO ($C_{\ast}\sim 1.2$). This is partially linked to the removal of the ICL which strongly evolves with time. The reason for this is the ongoing stripping of stars from infalling satellites in massive clusters.
+
+However, the origin of the deviation between simulations and observations remains elusive.
+
+In this figure, BAHAMAS, C-OWLs and Magneticum are not included as we had no access to data from multiple redshifts.
 
 ## Discussion
 
@@ -171,6 +176,8 @@ Now that we have seen the final (as of right now) [plot](https://github.com/witt
 
 3. Excluding low-mass satellites from the total stellar mass does not seem to have a big impact in TNG, thus it is probably also not too major for the other sims.
 
+
+All the fitting parameters for the simulations can be found [here](https://docs.google.com/spreadsheets/d/1v85ZMcudOyRqzyrIkTzvVpi2CMC0-3bXFLOcqST5l5Y/edit?usp=sharing).
 
 
 [^1]: Note: From here on, instead of using the abovementioned procedure to compute R<sub>200</sub>, we directly take the M<sub>200</sub> measurements and compute R<sub>200</sub> directly from this. By doing so, we avoid numerical inaccuracies that could arise as M<sub>500</sub> itself was not measured but calculated from the M<sub>200</sub> measurements.
