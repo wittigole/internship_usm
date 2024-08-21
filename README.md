@@ -85,7 +85,7 @@ $$f_{\rm corr} = \frac{f_{\rm bar}^{\rm data}}{f_{\rm bar}^{\rm sim}} \hspace{0.
 
 Thereby, we receive the following results for the best simulation variation runs.
 
-![best_sims](./plots/stellar_vs_halo_mass_wo_z_best_sims_rescaled.jpg)
+![best_sims](./plots/stellar_vs_halo_mass_wo_z_best_sims.jpg)
 
 %TODO: needs update for TNG and FLAMINGO
 
